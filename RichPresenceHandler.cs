@@ -3,7 +3,6 @@ using System.Linq;
 using MiSideRPC.Enums;
 using MiSideRPC.Extensions;
 using NetDiscordRpc;
-using NetDiscordRpc.Core.Logger;
 using NetDiscordRpc.RPC;
 using UnityEngine;
 
@@ -100,7 +99,9 @@ public class RichPresenceHandler : MonoBehaviour
             else
                 _richPresence.State = string.Empty;
 
-            var largeImage = room.GetLargeImageKey();
+            // Prioritise action images.
+            var actionLargeImage = action.GetActions().First().GetLargeImageKey();
+            var largeImage = room.CanHaveAction() ? actionLargeImage ?? room.GetLargeImageKey() : room.GetLargeImageKey();
             _richPresence.Assets.LargeImageKey = largeImage;
             _client.SetPresence(_richPresence);
             Debug.Log("Updated Rich Presence!");

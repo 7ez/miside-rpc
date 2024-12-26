@@ -18,7 +18,7 @@ public static class EnumExtensions
         return attr?.Description ?? source.ToString();
     }
 
-    public static string GetLargeImageKey(this CurrentRoom source)
+    public static string GetLargeImageKey<T>(this T source)
     {
         var fi = source.GetType().GetField(source.ToString()!)!;
         var attr = fi.GetCustomAttribute<LargeKeyAttribute>();

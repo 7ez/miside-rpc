@@ -8,14 +8,14 @@ public enum CurrentRoom
 {
     None = 0,
     
+    // SceneLoading | SceneAihasto
+    [Description("Loading...")]
+    [LargeKey("loading")]
+    Loading,
     // SceneMenu
     [Description("In Menu")]
     [LargeKey("loading")]
     Menu,
-    // SceneLoading
-    [Description("Loading...")]
-    [LargeKey("loading")]
-    Loading,
     // Scene 1 - RealRoom
     [Description("In own room")]
     [LargeKey("player_room_first")]
@@ -115,19 +115,21 @@ public enum CurrentRoom
     [LargeKey("with_ghost_mita")]
     WithGhostMita,
     // Scene 11 - Backrooms, use GameObject.Find("Quest 4 Maneken")
-    [Description("Running from Dummy Mita's")]
+    [Description("Running from Dummy Mitas")]
     ChasedByDummies,
     // Scene 17 - Dreamer
     [Description("Trying to wake up Mita")]
     [LargeKey("with_sleepy_mita")]
+    [CanHaveAction]
     WithSleepyMita,
     // Scene 18 - 2D
     [Description("Playing a visual novel")]
     [LargeKey("with_2d_mita")]
     With2DMita,
     // Scene 19 - Glasses
-    [Description("Fixing bugs in Mila's house")]
+    [Description("Hanging out with Mila")]
     [LargeKey("with_mila")]
+    [CanHaveAction]
     WithMila,
     // Scene 20 - FightMita
     [Description("Running from Mita")]
@@ -144,9 +146,12 @@ public enum CurrentRoom
     // Scene 12 - Freak
     [Description("Hiding from Creepy Mita")]
     [LargeKey("with_ugly_mita")]
+    [CanHaveAction]
     WithUglyMita,
     // Scene 13 - HelloCore
-    [Description("Finding a way to restart Mita")]
+    [Description("In Core Room")]
+    [LargeKey("in_core_first")]
+    [CanHaveAction]
     InCoreRoomFirst,
     // Scene 14 - MobilePlayer
     [Description("Playing on a phone")]
@@ -155,16 +160,20 @@ public enum CurrentRoom
     // Scene 14 - MobilePlayer, use GameObject.Find("Quest 1") (i think?)
     [Description("Caught by Mita")]
     [LargeKey("caught_by_mita")]
+    [CanHaveAction]
     CaughtByMita,
     // Scene 14 - MobilePlayer, use GameObject.Find("Quest 3 RealRoom")
     [Description("Waking up, programming, going to sleep...")]
     [LargeKey("player_room_second")]
+    [CanHaveAction]
     BeingSisyphus,
     // Scene 15 - BasementAndDeath
     [Description("Locked in the basement")]
     [LargeKey("in_basement_locked")]
     InBasementSecondTime,
-    // Scene 15 - BasementAndDeath, use GameObject.Find("House")
+    // Scene 15 - BasementAndDeath, use GameObject.Find("Sound ScreamMita")
+    // The reason for Sound ScreamMita is,
+    // it never gets disabled after it gets enabled.
     [Description("Hanging out with Kind Mita")]
     [LargeKey("with_kind_mita")]
     [CanHaveAction]
@@ -172,8 +181,9 @@ public enum CurrentRoom
     // Scene 15 - BasementAndDeath, use GameObject.Find("CoreRoom")
     // the above method is inaccurate, but you shouldn't really be walking around
     // the house anyway.
-    [Description("Restarting Mita")]
+    [Description("In Core Room")]
     [LargeKey("in_core_second")]
+    [CanHaveAction]
     InCoreRoomSecond,
     
     [Description("Playing Hetoor")]

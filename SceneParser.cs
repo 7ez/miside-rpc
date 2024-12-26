@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 
 namespace MiSideRPC;
 
+// WARNING: The following code isn't perfect,
+// but it works.
 public abstract class SceneParser
 {
     private static bool _wasInCoreSecondTime;
@@ -21,9 +23,9 @@ public abstract class SceneParser
 
         var room = currentScene.name switch
         {
-            "SceneMenu" => CurrentRoom.Menu,
             "SceneAihasto" => CurrentRoom.Loading,
             "SceneLoading" => CurrentRoom.Loading,
+            "SceneMenu" => CurrentRoom.Menu,
             "Scene 1 - RealRoom" => CurrentRoom.PlayerRoom,
             "Scene 2 - InGame" => CurrentRoom.InGame,
             "Scene 3 - WeTogether" => CurrentRoom.WithMita,
@@ -108,7 +110,7 @@ public abstract class SceneParser
             case CurrentRoom.LookingForSelf when GameObject.Find("Quest 3 RealRoom"):
                 room = CurrentRoom.BeingSisyphus;
                 break;
-            case CurrentRoom.InBasementSecondTime when GameObject.Find("House") && !GameObject.Find("CoreRoom"):
+            case CurrentRoom.InBasementSecondTime when GameObject.Find("Sound ScreamMita") && !GameObject.Find("CoreRoom"):
                 room = _wasInCoreSecondTime ? CurrentRoom.WithMita : CurrentRoom.KindMitaHouse;
                 break;
             case CurrentRoom.InBasementSecondTime when GameObject.Find("CoreRoom"):
@@ -165,30 +167,55 @@ public abstract class SceneParser
                 if (!gameDance.canMiss)
                     action = CurrentAction.PickingDanceFloorSong;
             }
-
-            // ButtonHammer/Interactive Sit
+            
             if (GameObject.Find("ButtonHammer/Interactive Sit"))
             {
                 action = CurrentAction.PlayingBigButton;
             }
         }
+
+        if (room == CurrentRoom.BeingSisyphus && GameObject.Find("GameSnaker"))
+            action = CurrentAction.PlayingSnake;
+
+        if (room is CurrentRoom.InCoreRoomFirst or CurrentRoom.InCoreRoomSecond && GameObject.Find("ScreenGame"))
+            action = CurrentAction.PlayingQuadrangle;
+
+        if (room == CurrentRoom.WithMila)
+        {
+            if (GameObject.Find("GlitchGame 1"))
+                action = CurrentAction.FixingGlitch1;
+            else if (GameObject.Find("GlitchGame 2"))
+                action = CurrentAction.FixingGlitch2;
+            else if (GameObject.Find("GlitchGame 3"))
+                action = CurrentAction.FixingGlitch3;
+            else if (GameObject.Find("GlitchGame 4"))
+                action = CurrentAction.FixingGlitch4;
+        }
         
         // ReSharper disable once InvertIf
         if (action == CurrentAction.Unknown)
         {
+            // This logic is faulty, and will show
+            // the room that's loaded in this order
+            // (door to the room must be closed
+            // (Mita's can also cause the room
+            // to be activated then deactivated
+            // once the door closes) in order for
+            // the room to update properly on Discord),
+            // because I don't really think we
+            // have a reliable method of checking which room
+            // the player is in, so we just check which room
+            // is active.
+            if (GameObject.Find("House/Main"))
+                action = CurrentAction.InMainRoom;
             // This must be Bedroom/Bedroom for Cappie because the bedroom
             // is an essential part of the chapter.
-            if (GameObject.Find(room == CurrentRoom.WithCappie ? "Bedroom/Bedroom" : "House/Bedroom"))
+            else if (GameObject.Find(room == CurrentRoom.WithCappie ? "Bedroom/Bedroom" : "House/Bedroom"))
                 action = CurrentAction.InBedroom;
             else if (GameObject.Find("House/Kitchen"))
                 action = CurrentAction.InKitchen;
             else if (GameObject.Find("House/Toilet"))
                 action = CurrentAction.InBathroom;
-            else if (GameObject.Find("House/Main"))
-                // This might break if a Mita is exiting another room
-                // after the player exited it already,
-                // because it causes it to get loaded, before unloading it again.
-                action = CurrentAction.InMainRoom;
         }
         
         return action;
