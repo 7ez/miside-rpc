@@ -123,6 +123,25 @@ public abstract class SceneParser
     public static CurrentAction GetCurrentAction(CurrentRoom room)
     {
         var action = CurrentAction.Unknown;
+
+        if (room == CurrentRoom.AfterPills)
+        {
+            if (GameObject.Find("TV/GameTelevision"))
+            {
+                action = CurrentAction.PlayingOnConsole;
+
+                if (GameObject.Find("Pinguin(Clone)"))
+                    action |= CurrentAction.PlayingPenguinGame;
+                else if (GameObject.Find("Fight(Clone)"))
+                    action |= CurrentAction.PlayingMilkGame;
+                else
+                    action |= CurrentAction.PickingAConsoleGame;
+            }
+
+            if (GameObject.Find("Game Card/MitaGame"))
+                action = CurrentAction.PlayingCards;
+
+        }
         
         if (room == CurrentRoom.WithCappie)
         {

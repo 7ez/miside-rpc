@@ -84,18 +84,18 @@ public class RichPresenceHandler : MonoBehaviour
 
             if (action != CurrentAction.Unknown && room.CanHaveAction())
             {
+                var firstAction = action.GetActions().First();
                 if ((action & CurrentAction.PlayingDanceFloor) == CurrentAction.PlayingDanceFloor)
                 {
                     var watchingCappiePlay =
                         (action & CurrentAction.WatchingCappiePlay) == CurrentAction.WatchingCappiePlay;
-                    var firstAction = action.GetActions().First();
 
                     _richPresence.State = watchingCappiePlay
                         ? $"Watching Cappie play {firstAction.GetDescription()}"
                         : $"Playing {firstAction.GetDescription()}";
                 }
                 else
-                    _richPresence.State = action.GetActions().First().GetDescription();
+                    _richPresence.State = firstAction.GetDescription();
             }
             else
                 _richPresence.State = string.Empty;

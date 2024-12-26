@@ -16,22 +16,27 @@ public enum CurrentAction
     InMainRoom = 1 << 3,
     [Description("In Kitchen")]
     InKitchen = 1 << 4,
-    [Description("Playing Penguin Game with Mita")]
-    PlayingPenguinGame = 1 << 5,
-    [Description("Playing Milk Game with Mita")]
-    PlayingMilkGame = 1 << 6,
+    [Description("Picking a console game")]
+    PickingAConsoleGame = 1 << 5,
+    [Description("Playing Penguin Piles")]
+    PlayingPenguinGame = 1 << 6,
+    [Description("Playing Dairy Scandal")]
+    PlayingMilkGame = 1 << 7,
     [Description("Picking Dance Floor Song")]
-    PickingDanceFloorSong = 1 << 7,
+    PickingDanceFloorSong = 1 << 8,
     [Description("Cracker")]
-    PlayingCracker = 1 << 8,
+    PlayingCracker = 1 << 9,
     [Description("Bubble Drink")]
-    PlayingBubbleDrink = 1 << 9,
+    PlayingBubbleDrink = 1 << 10,
     [Description("Balloon")]
-    PlayingBalloon = 1 << 10,
-    [Description("Playing Button Game with Cappie")]
-    PlayingBigButton = 1 << 11,
+    PlayingBalloon = 1 << 11,
+    [Description("Playing Button Game")]
+    PlayingBigButton = 1 << 12,
+    [Description("Playing cards")]
+    PlayingCards = 1 << 13,
     
     
-    WatchingCappiePlay = 1 << 12,
-    PlayingDanceFloor = 1 << 13,
+    WatchingCappiePlay = 1 << 14,
+    PlayingDanceFloor = 1 << 15,
+    PlayingOnConsole = 1 << 16,
 }
