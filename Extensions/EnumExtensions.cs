@@ -26,6 +26,13 @@ public static class EnumExtensions
         return attr?.Name;
     }
 
+    public static bool CanHaveAction(this CurrentRoom source)
+    {
+        var fi = source.GetType().GetField(source.ToString()!)!;
+        var attr = fi.GetCustomAttribute<CanHaveActionAttribute>();
+        return attr is not null;
+    }
+
     public static IEnumerable<CurrentAction> GetActions(this CurrentAction source)
     {
         return Enum.GetValues(typeof(CurrentAction)).Cast<Enum>().Where(source.HasFlag).Cast<CurrentAction>();

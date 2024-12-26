@@ -23,6 +23,7 @@ public enum CurrentRoom
     // Scene 2 - InGame
     [Description("In Mita's house")]
     [LargeKey("in_game")]
+    [CanHaveAction]
     InGame,
     // Scene 3 - WeTogether
     // also Scene 15 - BasementAndDeath
@@ -30,15 +31,18 @@ public enum CurrentRoom
     // then consistently check for it.
     [Description("Hanging out with Mita")]
     [LargeKey("with_mita")]
+    [CanHaveAction]
     WithMita,
     // Scene 4 - StartSecret
     [Description("Hanging out with Mita")]
     [LargeKey("after_pills")]
+    [CanHaveAction]
     AfterPills,
     // Scene 5 - StartHorror
     [Description("Finding a way into the basement")]
     // TODO: does this fit here?
     [LargeKey("in_basement")]
+    [CanHaveAction]
     RefusedStay,
     // Scene 6 - BasementFirst
     [Description("In Basement")]
@@ -67,6 +71,7 @@ public enum CurrentRoom
     // Scene 7 - Backrooms, use GameObject.Find("Music Cap")
     [Description("Hanging out with Cappie")]
     [LargeKey("with_cappie")]
+    [CanHaveAction]
     WithCappie,
     // Scene 8 - ReRooms
     [Description("In The Loop")]
@@ -162,6 +167,7 @@ public enum CurrentRoom
     // Scene 15 - BasementAndDeath, use GameObject.Find("House")
     [Description("Hanging out with Kind Mita")]
     [LargeKey("with_kind_mita")]
+    [CanHaveAction]
     KindMitaHouse,
     // Scene 15 - BasementAndDeath, use GameObject.Find("CoreRoom")
     // the above method is inaccurate, but you shouldn't really be walking around

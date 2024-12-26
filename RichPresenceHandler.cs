@@ -82,7 +82,7 @@ public class RichPresenceHandler : MonoBehaviour
             Debug.Log("Updating Rich Presence...");
             _richPresence.Details = room.GetDescription();
 
-            if (action != CurrentAction.Unknown)
+            if (action != CurrentAction.Unknown && room.CanHaveAction())
             {
                 if ((action & CurrentAction.PlayingDanceFloor) == CurrentAction.PlayingDanceFloor)
                 {
