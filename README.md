@@ -5,7 +5,7 @@
 ![image](https://github.com/user-attachments/assets/7e871a5d-141e-43e7-8e2d-6516c18875d2) ![image](https://github.com/user-attachments/assets/3315e361-9eb6-4c13-95a2-96e279b92e9c)
 
 ## Installation
-1. Download BepInEx 6 from the [official github](https://github.com/bepinex/bepinex/releases). (WARNING: make **sure** you download BepInEx-Unity.IL2CPP-win-x64-version.zip!)
+1. Download BepInEx 6 from the [official github](https://github.com/bepinex/bepinex/releases). (WARNING: make **sure** you download BepInEx-Unity.IL2CPP-win-x64-6.x.x.zip!)
 2. Extract into game files. (C:/path/to/Steam/steamapps/common/MiSide)
 3. Download the [latest release](https://github.com/7ez/miside-rpc/releases/tag/latest).
 4. Extract the folder within the zip file into the `BepInEx/plugins` folder.
