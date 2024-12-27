@@ -150,7 +150,7 @@ public enum CurrentRoom
     WithUglyMita,
     // Scene 13 - HelloCore
     [Description("In Core Room")]
-    [LargeKey("in_core_first")]
+    [LargeKey("in_core")]
     [CanHaveAction]
     InCoreRoomFirst,
     // Scene 14 - MobilePlayer
@@ -182,7 +182,7 @@ public enum CurrentRoom
     // the above method is inaccurate, but you shouldn't really be walking around
     // the house anyway.
     [Description("In Core Room")]
-    [LargeKey("in_core_second")]
+    [LargeKey("in_core")]
     [CanHaveAction]
     InCoreRoomSecond,
     
