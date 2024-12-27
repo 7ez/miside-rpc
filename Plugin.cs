@@ -1,15 +1,14 @@
 ﻿using BepInEx;
 using BepInEx.Unity.IL2CPP;
 
-namespace MiSideRPC
+namespace MiSideRPC;
+
+[BepInPlugin(Constants.PluginGuid, Constants.PluginName, Constants.PluginVersion)]
+public class RPCPlugin : BasePlugin
 {
-    [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
-    public class RPCPlugin : BasePlugin
+    public override void Load()
     {
-        public override void Load()
-        {
-            AddComponent<RichPresenceHandler>();
-            Log.LogInfo($"{PluginInfo.PLUGIN_NAME} (v{PluginInfo.PLUGIN_VERSION}) was loaded!");
-        }
+        AddComponent<RichPresenceUpdater>();
+        Log.LogInfo($"{Constants.PluginName} (v{Constants.PluginVersion}) was loaded!");
     }
 }

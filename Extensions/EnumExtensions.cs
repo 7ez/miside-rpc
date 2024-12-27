@@ -18,10 +18,10 @@ public static class EnumExtensions
         return attr?.Description ?? source.ToString();
     }
 
-    public static string GetLargeImageKey<T>(this T source)
+    public static string GetDiscordImageKey<T>(this T source)
     {
         var fi = source.GetType().GetField(source.ToString()!)!;
-        var attr = fi.GetCustomAttribute<LargeKeyAttribute>();
+        var attr = fi.GetCustomAttribute<DiscordImageAttribute>();
 
         return attr?.Name;
     }
@@ -30,6 +30,13 @@ public static class EnumExtensions
     {
         var fi = source.GetType().GetField(source.ToString()!)!;
         var attr = fi.GetCustomAttribute<CanHaveActionAttribute>();
+        return attr is not null;
+    }
+
+    public static bool IsMinigame(this CurrentAction source)
+    {
+        var fi = source.GetType().GetField(source.ToString()!)!;
+        var attr = fi.GetCustomAttribute<IsMinigameAttribute>();
         return attr is not null;
     }
 

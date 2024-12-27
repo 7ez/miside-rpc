@@ -3,6 +3,6 @@
 namespace MiSideRPC.Attributes;
 
 [AttributeUsage(AttributeTargets.Field)]
-public class CanHaveActionAttribute : Attribute
+public class IsMinigameAttribute : Attribute
 {
 }
