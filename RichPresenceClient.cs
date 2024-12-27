@@ -82,9 +82,10 @@ public class RichPresenceClient : IDisposable
             // Hack for "Picking a console game" not getting removed.
             // It doesn't matter if we reset this, because small
             // image, etc. get set below this anyway.
-            if ((action & CurrentAction.PlayingOnConsole) == CurrentAction.PlayingOnConsole && (action & CurrentAction.PickingAConsoleGame) == 0)
-                ClearAction(); 
-            
+            if ((action & CurrentAction.PlayingOnConsole) == CurrentAction.PlayingOnConsole &&
+                (action & CurrentAction.PickingAConsoleGame) == 0)
+                ClearAction();
+
             if ((action & CurrentAction.PlayingDanceFloor) == CurrentAction.PlayingDanceFloor)
                 _richPresence.Assets.SmallImageText =
                     (action & CurrentAction.WatchingCappiePlay) == CurrentAction.WatchingCappiePlay
@@ -138,6 +139,7 @@ public class RichPresenceClient : IDisposable
                     $" (#{minigame.Rank}/{minigame.MaxRank}, {minigame.Score}/{minigame.MaxScore}{suffix})",
                 CurrentAction.PlayingDoom =>
                     $" ({prefix}{minigame.Rank}/{minigame.MaxRank}, {minigame.Score}/{minigame.MaxScore}{suffix})",
+                CurrentAction.PlayingSnake => $" ({prefix}{minigame.Score}{suffix})",
                 _ => $" ({prefix}{minigame.Score}/{minigame.MaxScore}{suffix})"
             };
         }

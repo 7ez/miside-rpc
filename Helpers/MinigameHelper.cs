@@ -109,7 +109,16 @@ public abstract class MinigameHelper
                 minigame.MaxScore = cardGameLoc.scoreMita;
                 return minigame;
             }
-                
+            case CurrentAction.PlayingSnake:
+            {
+                var minigame = new MinigameInfo();
+                var snakeGame = GameObject.Find("GameSnaker");
+                var snake = snakeGame.GetComponent<Location14_PCSnaker>();
+
+                minigame.Score = snake.score;
+                minigame.ScoreSuffix = "Apples";
+                return minigame;
+            }
         }
 
         return null;

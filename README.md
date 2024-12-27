@@ -6,7 +6,6 @@
 ![image](https://github.com/user-attachments/assets/7e871a5d-141e-43e7-8e2d-6516c18875d2) ![image](https://github.com/user-attachments/assets/3315e361-9eb6-4c13-95a2-96e279b92e9c) <br />
 ![image](https://github.com/user-attachments/assets/0536f1b3-3b73-4bd2-b2c4-8852a5659601) ![image](https://github.com/user-attachments/assets/7532da1b-dce5-43dd-8a99-c1faa1b12f20)
 
-
 ## Installation
 
 1. Download BepInEx 6 from the [official github](https://github.com/bepinex/bepinex/releases). (WARNING: make **sure**
