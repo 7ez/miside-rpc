@@ -2,7 +2,9 @@
 
 ## Examples:
 ![image](https://github.com/user-attachments/assets/f761ae9c-11ac-4ca1-af28-b91ece204944) ![image](https://github.com/user-attachments/assets/c332d91f-49aa-44c4-bf28-c1ecedef9c18) <br />
-![image](https://github.com/user-attachments/assets/7e871a5d-141e-43e7-8e2d-6516c18875d2) ![image](https://github.com/user-attachments/assets/3315e361-9eb6-4c13-95a2-96e279b92e9c)
+![image](https://github.com/user-attachments/assets/7e871a5d-141e-43e7-8e2d-6516c18875d2) ![image](https://github.com/user-attachments/assets/3315e361-9eb6-4c13-95a2-96e279b92e9c) <br />
+![image](https://github.com/user-attachments/assets/0536f1b3-3b73-4bd2-b2c4-8852a5659601)
+
 
 ## Installation
 1. Download BepInEx 6 from the [official github](https://github.com/bepinex/bepinex/releases). (WARNING: make **sure** you download BepInEx-Unity.IL2CPP-win-x64-6.x.x.zip!)
