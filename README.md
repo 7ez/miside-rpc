@@ -11,7 +11,7 @@
 4. Extract the folder within the zip file into the `BepInEx/plugins` folder.
 
 ## Issues
-If you stumble upon any issues, bugs with the RPC or if you feel something is displaying wrongly, please [create an issue](https://github.com/7ez/miside-rpc/issues/new).
+If you stumble upon any issues, bugs with the RPC or if you feel something is displayed wrong, please [create an issue](https://github.com/7ez/miside-rpc/issues/new).
 
 ## Credits
 - [ZeldaDev](https://www.nuget.org/profiles/ZeldaDev) for their [NetDiscordRpc](https://www.nuget.org/packages/NetDiscordRpc).
